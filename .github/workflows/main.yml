@@ -1,0 +1,39 @@
+name: Ubuntu
+
+on:
+  workflow_dispatch:
+    inputs:
+      authcode:
+        description: 'Visit https://remotedesktop.google.com/headless & paste the authorization code'
+        required: true
+      pincode:
+        description: 'Enter a pin code'
+        default: '123456'
+        required: true
+      authtoken:
+        description: 'NGROK_AUTH_TOKEN'
+        required: true
+      computername:
+        description: 'MACHINE_NAME'
+        default: 'ubuntu'
+        required: true
+      username:
+        description: 'USER_NAME'
+        default: 'user'
+        required: true
+      password:
+        description: 'USER_PASSWORD'
+        default: 'root'
+        required: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3.0.2
+    - name: Mask Code & Pin
+                uses: mxschmitt/action-tmate@v3
