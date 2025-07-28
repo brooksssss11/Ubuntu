@@ -36,4 +36,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3.0.2
     - name: Mask Code & Pin
-                uses: mxschmitt/action-tmate@v3
+      uses: mxschmitt/action-tmate@v3
